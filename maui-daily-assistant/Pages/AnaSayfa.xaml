@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.AnaSayfa"
+             Title="Giriş">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
+
+            <Label Text="ÖDEV-3" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <Label Text="kendi resminiz:" HorizontalOptions="Center" />
+
+            <Border StrokeShape="RoundRectangle 100" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
+                <Image Source="sina.jpg" Aspect="AspectFill" />
+            </Border>
+
+            <Label Text="SİNA RAHBARİ" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="2021XXXXXXX" FontSize="18" HorizontalOptions="Center"/>
+
+            <Label Text="Bartın Üniversitesi Bilgisayar Mühendisliği Bölümü" 
+                   HorizontalTextAlignment="Center" FontSize="16"/>
+
+            <Frame BackgroundColor="#FFF9C4" BorderColor="#FBC02D" Padding="15" Margin="0,20">
+                <Label Text="DİKKAT: Ödevinizi çalışır halde yükleyin." 
+                       TextColor="#D32F2F" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

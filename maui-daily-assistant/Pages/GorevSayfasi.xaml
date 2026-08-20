@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.GorevSayfasi" Title="Yapılacaklar">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnAddGorevClicked" Order="Primary"/>
+        <ToolbarItem Text="🔄" Clicked="OnRefreshClicked" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="*, Auto">
+        <CollectionView x:Name="GorevlerListesi" Grid.Row="0" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="LightGray" StrokeShape="RoundRectangle 10" Padding="10" Margin="5">
+                        <Grid ColumnDefinitions="Auto, *, Auto" RowDefinitions="Auto, Auto">
+                            <CheckBox IsChecked="{Binding YapildiMi}" Grid.Column="0" Grid.RowSpan="2" VerticalOptions="Center"/>
+
+                            <VerticalStackLayout Grid.Column="1" Grid.Row="0" Margin="10,0">
+                                <Label Text="{Binding Baslik}" FontAttributes="Bold" FontSize="18"/>
+                                <Label Text="{Binding Detay}" FontSize="14" TextColor="Gray" MaxLines="1"/>
+                                <Label Text="{Binding Tarih, StringFormat='{0} '}" FontSize="12" TextColor="DarkSlateGray">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Tarih}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding Saat}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+
+                            <HorizontalStackLayout Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center" Spacing="5">
+                                <Button Text="✎" Clicked="OnEditClicked" CommandParameter="{Binding .}" BackgroundColor="Blue" MinimumWidthRequest="40"/>
+                                <Button Text="🗑" Clicked="OnDeleteClicked" CommandParameter="{Binding .}" BackgroundColor="Red" MinimumWidthRequest="40"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Yeni Görev Ekle" Clicked="OnAddGorevClicked" Grid.Row="1" Margin="20" 
+                BackgroundColor="#512BD4" TextColor="White" CornerRadius="10"/>
+    </Grid>
+</ContentPage>

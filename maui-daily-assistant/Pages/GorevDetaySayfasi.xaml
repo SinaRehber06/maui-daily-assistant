@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.GorevDetaySayfasi"
+             Title="Görev Detayı">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="#121212">
+
+            <Label Text="Görev Başlığı" TextColor="White" FontAttributes="Bold" />
+            <Entry x:Name="BaslikEntry" 
+                   Placeholder="Örn: Ödevi Teslim Et" 
+                   TextColor="White" 
+                   PlaceholderColor="Gray"
+                   BackgroundColor="#1E1E1E"/>
+
+            <Label Text="Görev Detayı" TextColor="White" FontAttributes="Bold" />
+            <Editor x:Name="DetayEditor"
+                    Placeholder="Görev hakkında detaylı bilgi yazın..."
+                    HeightRequest="150"
+                    TextColor="White"
+                    PlaceholderColor="Gray"
+                    BackgroundColor="#1E1E1E"
+                    AutoSize="Disabled"/>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="Tarih" TextColor="White" FontAttributes="Bold" />
+                    <DatePicker x:Name="GorevTarih" 
+                                TextColor="White" 
+                                BackgroundColor="#1E1E1E"
+                                Format="dd.MM.yyyy"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                    <Label Text="Saat" TextColor="White" FontAttributes="Bold" />
+                    <TimePicker x:Name="GorevSaat" 
+                                TextColor="White" 
+                                BackgroundColor="#1E1E1E"
+                                Format="HH:mm"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <CheckBox x:Name="YapildiMiCheckBox" Color="#512BD4" />
+                <Label Text="Tamamlandı olarak işaretle" VerticalOptions="Center" TextColor="White" />
+            </HorizontalStackLayout>
+
+            <Button Text="Görevi Kaydet" 
+                    Clicked="OnKaydetClicked"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.UyeSayfasi"
+             Title="Kaydol">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+            <Image Source="dotnet_bot.png" HeightRequest="100" HorizontalOptions="Center"/>
+
+            <Border StrokeShape="RoundRectangle 15" Padding="20" BackgroundColor="{AppThemeBinding Light=White, Dark=#212121}">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Yeni Hesap Oluştur" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+                    <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Şifre" IsPassword="True"/>
+                    <Entry x:Name="PasswordConfirmEntry" Placeholder="Şifre Tekrar" IsPassword="True"/>
+
+                    <Button Text="Kaydol" 
+                            Clicked="OnRegisterButtonClicked" 
+                            BackgroundColor="#512BD4" 
+                            TextColor="White"
+                            CornerRadius="20"
+                            HeightRequest="45"/>
+
+                    <Button Text="Zaten bir hesabım var" 
+                            Clicked="OnCancelClicked" 
+                            BackgroundColor="Transparent" 
+                            TextColor="#512BD4"/>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.HavaDurumuSayfasi"
+             Title="Hava Durumu">
+
+    <Grid RowDefinitions="Auto, *">
+        <HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="15" BackgroundColor="#1E1E1E">
+            <Entry x:Name="entSehir" Placeholder="Şehir adı..." WidthRequest="200" TextColor="White"/>
+            <Button Text="Ekle" Clicked="OnSehirEkleClicked" BackgroundColor="#512BD4"/>
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="cvHavaDurumu" Grid.Row="1" Margin="15">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Spacing="5" Margin="0,0,0,25">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="{Binding DisplayName}" FontSize="22" FontAttributes="Bold" TextColor="White"/>
+                            <Button Grid.Column="1" Text="Sil" Clicked="OnSilClicked" CommandParameter="{Binding .}" BackgroundColor="Red"/>
+                        </Grid>
+
+                        <Border BackgroundColor="Black" StrokeThickness="0">
+                            <Image Source="{Binding Source}" 
+                                   HeightRequest="150" 
+                                   Aspect="AspectFit"/>
+                        </Border>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

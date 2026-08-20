@@ -1,0 +1,32 @@
+<Shell
+    x:Class="MauiOdev3.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:MauiOdev3.Pages">
+
+    <TabBar>
+        <Tab Title="Profil">
+            <ShellContent ContentTemplate="{DataTemplate pages:ProfilSayfasi}" />
+        </Tab>
+
+        <Tab Title="Kurlar">
+            <ShellContent ContentTemplate="{DataTemplate pages:DovizSayfasi}" />
+        </Tab>
+
+        <Tab Title="Haberler">
+            <ShellContent ContentTemplate="{DataTemplate pages:HaberSayfasi}" />
+        </Tab>
+
+        <Tab Title="Hava Durumu">
+            <ShellContent ContentTemplate="{DataTemplate pages:HavaDurumuSayfasi}" />
+        </Tab>
+
+        <Tab Title="Görevler">
+            <ShellContent ContentTemplate="{DataTemplate pages:GorevSayfasi}" />
+        </Tab>
+
+        <Tab Title="Ayarlar">
+            <ShellContent ContentTemplate="{DataTemplate pages:AyarlarSayfasi}" />
+        </Tab>
+    </TabBar>
+</Shell>

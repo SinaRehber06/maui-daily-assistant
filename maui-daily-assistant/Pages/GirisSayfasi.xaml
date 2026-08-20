@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.GirisSayfasi"
+             Title="Login">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+            <Image Source="sina.jpg" HeightRequest="120" HorizontalOptions="Center"/>
+            <Label Text="Oturum Aç" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="15">
+                <VerticalStackLayout Spacing="15">
+                    <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
+
+                    <Button Text="Oturum Aç" 
+                            Clicked="OnGirisClicked" 
+                            BackgroundColor="#512BD4" 
+                            TextColor="White"
+                            CornerRadius="20"/>
+
+                    <Button Text="Hesabım Yok (Kaydol)" 
+                            Clicked="OnKaydolGitClicked" 
+                            BackgroundColor="Transparent" 
+                            TextColor="#512BD4"/>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

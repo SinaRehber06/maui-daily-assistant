@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiOdev3.Pages.DovizSayfasi"
+             Title="Güncel Kurlar">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <!-- ÜST -->
+        <HorizontalStackLayout Grid.Row="0"
+                               Spacing="10"
+                               Padding="10"
+                               HorizontalOptions="Center">
+            <Button Text="Kurları Yenile"
+                    Clicked="OnYenileClicked"
+                    BackgroundColor="#512BD4"
+                    TextColor="White" />
+
+            <ActivityIndicator x:Name="Yukleyici"
+                               IsRunning="False"
+                               Color="#512BD4"
+                               VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <!-- BAŞLIK -->
+        <Grid Grid.Row="1"
+              BackgroundColor="#512BD4"
+              Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Tür" TextColor="White" FontAttributes="Bold" Grid.Column="0" />
+            <Label Text="Alış" TextColor="White" FontAttributes="Bold" Grid.Column="1" />
+            <Label Text="Satış" TextColor="White" FontAttributes="Bold" Grid.Column="2" />
+            <Label Text="Fark" TextColor="White" FontAttributes="Bold" Grid.Column="3" />
+            <Label Text="Yön"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   Grid.Column="4"
+                   HorizontalTextAlignment="Center" />
+        </Grid>
+
+        <!-- LİSTE -->
+        <CollectionView x:Name="KurListesi"
+                        Grid.Row="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding Tur}"
+                               Grid.Column="0"
+                               VerticalOptions="Center" />
+
+                        <Label Text="{Binding Alis}"
+                               Grid.Column="1"
+                               VerticalOptions="Center" />
+
+                        <Label Text="{Binding Satis}"
+                               Grid.Column="2"
+                               VerticalOptions="Center" />
+
+                        <Label Text="{Binding Fark}"
+                               Grid.Column="3"
+                               VerticalOptions="Center" />
+
+                        <!-- ✅ YÖN -->
+                        <Label Text="{Binding Yon}"
+                               Grid.Column="4"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               TextColor="Black">
+
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Yon}"
+                                             Value="↑">
+                                    <Setter Property="TextColor"
+                                            Value="Green" />
+                                </DataTrigger>
+
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Yon}"
+                                             Value="↓">
+                                    <Setter Property="TextColor"
+                                            Value="Red" />
+                                </DataTrigger>
+                            </Label.Triggers>
+
+                        </Label>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
